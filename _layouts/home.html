@@ -8,78 +8,43 @@ layout: default
   {% include back-link.html %}
 {% else %}
   <header class="site-masthead">
-    {% include menu.html %}
-
+          {% include menu.html %}
   </header>
 {% endif %}
 
 <main class="home" id="main" role="main" aria-label="Content">
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row justify-content-around">
       <div class="col-md-4">
         <img src= "{{ site.baseurl }}/assets/images/ammachai.svg" alt="">
       </div>
       <div class="col-md-7">
         <div class="row">
-          <p class="pb-4">Dear parents,</p>
+          <p class="pb-4">Dear Parents,</p>
           <p></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Platea dictumst quisque sagittis purus sit amet volutpat consequat. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Lorem ipsum dolor sit amet consectetur adipiscing elit duis. Enim blandit volutpat maecenas volutpat blandit. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Euismod in pellentesque massa placerat duis. Habitant morbi tristique senectus et netus et. Donec ac odio tempor orci dapibus ultrices. Enim diam vulputate ut pharetra sit amet aliquam id diam. Dictum fusce ut placerat orci nulla pellentesque dignissim enim sit. Sollicitudin tempor id eu nisl. Posuere ac ut consequat semper viverra nam libero justo laoreet.</p>
+          <p>Are you observing a <strong>short attention span, moodiness, difficulty in sleeping, aggression or loss of confidence</strong> in your young kid? According to various studies one of the major reasons for this behavior can be attributed to long screen time for the kids and lack of quality time with their parents. I believe that every parent tries his/her best to provide the best for their kids but worldly commitments sometimes make it hard to give as much time as we want to give to our kids.</p>
 
-          <p class="pt-2">Sem fringilla ut morbi tincidunt augue interdum velit. Ipsum consequat nisl vel pretium lectus. Porta non pulvinar neque laoreet. Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Et ligula ullamcorper malesuada proin libero nunc. Mauris nunc congue nisi vitae suscipit tellus mauris. Diam vel quam elementum pulvinar. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Dictum sit amet justo donec enim. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi.</p>
+          <p class="pt-2">As a solution, I'm bringing the time tested tradition of storytelling in a whole new way which will empower parents to provide a long lasting positive impact on their kids with the limited time they have. The work is on, I'm hopeful of launching the alpha phase in <span id="demo"></span> days. If you're interested, please follow me on <a href="https://www.instagram.com/ammastories/">Instagram</a> or subscribe through your email below. I assure you will not get more than one email a month from me.</p>
+
+          <p class="pt-2">Looking forward to reviving storytelling together.</p>
 
           <p class="pt-4">Yours Lovingly,</p>
           <p>Amma</p>
         </div>
         <div class="row">
           <div class="row">
-            <form id="my-form" action="https://formspree.io/f/mjvdpbew" method="POST" class="row pt-5">
-              <!-- <label>Email:</label> -->
-              <div class="row">
-                <div class="col-auto">
-                  <input type="email" class="form-control" name="email" placeholder="Email" />
-                </div>
-                <div class="col-auto">
-                  <button id="my-form-button" class="btn btn-primary mb-3">Subscribe</button>
-                </div>
-              </div>
-              <!-- <div class="row">
-                <p id="my-form-status">this is test text</p>
-              </div> -->
+            <form
+              action="https://formspree.io/f/mjvdpbew"
+              method="POST"
+              class="pt-4"
+            >
+              <label>
+                <input type="email" name="email" placeholder="Email" class="form-control">
+              </label>
+              <!-- your other form fields go here -->
+              <button class="btn btn-primary" type="submit">Subsribe</button>
             </form>
-            <!-- Place this script at the end of the body tag -->
-            <script>
-                var form = document.getElementById("my-form");
-
-                async function handleSubmit(event) {
-                  event.preventDefault();
-                  var status = document.getElementById("my-form-status");
-                  var data = new FormData(event.target);
-                  fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                  }).then(response => {
-                    if (response.ok) {
-                      status.innerHTML = "Thanks for Subscribing!";
-                      form.reset()
-                    } else {
-                      response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                          status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                        } else {
-                          status.innerHTML = "Oops! There was a problem submitting your form"
-                        }
-                      })
-                    }
-                  }).catch(error => {
-                    status.innerHTML = "Oops! There was a problem submitting your form"
-                  });
-                }
-                form.addEventListener("submit", handleSubmit)
-            </script>
 
           </div>
         </div>
@@ -89,50 +54,35 @@ layout: default
 
   </div>
 
-  #
-  <h1 class="content-title divided">
-    {% if site.paginate and site.paginate_path and paginator.page > 1 %}
-      Page {{ paginator.page }}
-    {% else %}
-      Contents
-    {% endif %}
-  </h1>
-
-  {% if site.paginate and site.paginate_path %}
-
-    <ul class="post-list">
-      {% for post in paginator.posts %}
-        {% include post-list-item.html %}
-      {% endfor %}
-    </ul>
-
-    {% if paginator.total_pages > 1 %}
-
-      <div class="post-pagination">
-        {% if paginator.next_page %}
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl  }}" class="pagination-next btn">&lang;&nbsp;Older</a>
-        {% else %}
-          <span>&nbsp;</span>
-        {% endif %}
-        <span class="pagination-number">{{ paginator.page }} of {{ paginator.total_pages }}</span>
-        {% if paginator.previous_page %}
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="pagination-previous btn">Newer&nbsp;&rang;</a>
-        {% else %}
-          <span>&nbsp;</span>
-        {% endif %}
-      </div>
-
-    {% endif %}
-
-  {% else %}
-
-    <ul class="post-list">
-      {% for post in site.posts %}
-        {% include post-list-item.html %}
-      {% endfor %}
-    </ul>
-
-  {% endif %}
-
-
 </main>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 30, 2023 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>

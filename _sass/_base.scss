@@ -2,7 +2,7 @@ body {
   background: $brand-color;
   color: $text-color;
   font-family: $font-family;
-  font-size: 1.3125em;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -109,19 +109,20 @@ figcaption {
 
 .divided::after {
   content: "";
-  @include divider;
+  // @include divider;
 }
 
 .home {
   max-width: 90em;
   margin: auto;
-  padding: 4em 1em;
+  // padding: 4em 1em;
 }
 
 .content-title {
   font-size: 2em;
   margin-bottom: 2em;
   text-align: center;
+  font-weight: bold;
 }
 
 .post-date {
