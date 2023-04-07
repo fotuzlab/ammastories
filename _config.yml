@@ -42,3 +42,10 @@ plugins:
 
 paginate: 3
 paginate_path: "/page/:num/"
+
+# Custom config
+show_excerpts: true
+excerpt_length: 100
+feed_icon: /assets/images/icon-512.png
+hide_credits: true
+hide_search: true
