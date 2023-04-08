@@ -44,6 +44,7 @@ paginate: 10
 paginate_path: "/blogs/:num/"
 
 # Custom config
+google_analytics: "G-1L9NR4EJMX"
 show_excerpts: true
 excerpt_length: 50
 feed_icon: /assets/images/icon-512.png
